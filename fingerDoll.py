@@ -16,7 +16,7 @@ sib, sibW, sibH = [None] * 5, [None] * 5, [None] * 5
 for s in range(0, 5):
     print(f"reading image {s}")
     sib[s] = cv2.imread(f'd{5-s}.png', cv2.IMREAD_UNCHANGED)
-    scale_percent = 65  # percent of original size
+    scale_percent = 35  # percent of original size
     width = int(sib[s].shape[1] * scale_percent / 100)
     height = int(sib[s].shape[0] * scale_percent / 100)
     dim = (width, height)
