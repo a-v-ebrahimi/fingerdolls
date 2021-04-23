@@ -97,15 +97,17 @@ while True:
                     ty = max(0, ty)
                     overlay_transparent(img, rImg, tx, ty)
                 # if id > 0:
-                    # cv2.circle(img, (cx, cy), 5, (0, 0, 255), cv2.FILLED)
-                    # cv2.putText(img, str(id), (cx, cy), cv2.FONT_HERSHEY_PLAIN, 1, (255, 255, 0), 2)
-            # mpDraw.draw_landmarks(img, handLms, mpHands.HAND_CONNECTIONS)
+                    cv2.circle(img, (cx, cy), 5, (0, 0, 255), cv2.FILLED)
+                    cv2.putText(img, str(id), (cx, cy), cv2.FONT_HERSHEY_PLAIN, 1, (255, 255, 0), 2)
+            mpDraw.draw_landmarks(img, handLms, mpHands.HAND_CONNECTIONS)
 
     cTime = time.time()
     fps = 1 / (cTime - pTime)
     pTime = cTime
 
-    cv2.putText(img, str(int(fps)), (10, 70), cv2.FONT_HERSHEY_PLAIN, 3, (255, 255, 0), 2)
+    cv2.putText(img, f"AR FingerDolls", (20, 70), cv2.FONT_HERSHEY_PLAIN, 3, (255,255,255), 2)
+    cv2.putText(img, f"(C) 2021 Control Adad Software", (20, 120), cv2.FONT_HERSHEY_PLAIN, 2, (160,80,1), 2)
+    cv2.putText(img, f"FPS : {int(fps)}", (20, 670), cv2.FONT_HERSHEY_PLAIN, 2, (0, 0, 255), 2)
 
     cv2.imshow("Image", img)
     cv2.waitKey(1)
